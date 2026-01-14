@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HonorBoard AI Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Audiowide&family=Bangers&family=Cinzel:wght@400;700;900&family=Great+Vibes&family=Long+Cang&family=Ma+Shan+Zheng&family=Montserrat:wght@400;700;900&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Orbitron:wght@400;700;900&family=Oswald:wght@400;700&family=Permanent+Marker&family=Playfair+Display:wght@400;700;900&family=Righteous&family=Roboto:wght@400;700;900&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            -webkit-font-smoothing: antialiased; /* Make text look bolder/cleaner */
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        .canvas-container {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "uuid": "https://esm.sh/uuid@^13.0.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "html-to-image": "https://esm.sh/html-to-image@1.11.11",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Hidden font loader: Forces browser to download these fonts immediately so they are ready for canvas export -->
+    <div style="position: absolute; top: -9999px; left: -9999px; opacity: 0; pointer-events: none;">
+        <span style="font-family: 'Montserrat'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Montserrat'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Montserrat'; font-weight: 900;">Load</span>
+        <span style="font-family: 'Noto Sans TC'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Noto Sans TC'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Noto Sans TC'; font-weight: 900;">Load</span>
+        <span style="font-family: 'Noto Serif TC'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Noto Serif TC'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Noto Serif TC'; font-weight: 900;">Load</span>
+        <span style="font-family: 'Roboto'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Roboto'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Roboto'; font-weight: 900;">Load</span>
+        <span style="font-family: 'Ma Shan Zheng'; font-weight: 400;">Load</span>
+        <span style="font-family: 'ZCOOL KuaiLe'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Cinzel'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Cinzel'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Orbitron'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Orbitron'; font-weight: 900;">Load</span>
+        <span style="font-family: 'Oswald'; font-weight: 700;">Load</span>
+        <span style="font-family: 'Bangers'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Playfair Display'; font-weight: 700;">Load</span>
+        <!-- New Fonts -->
+        <span style="font-family: 'Alfa Slab One'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Audiowide'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Great Vibes'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Long Cang'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Permanent Marker'; font-weight: 400;">Load</span>
+        <span style="font-family: 'Righteous'; font-weight: 400;">Load</span>
+        <span style="font-family: 'ZCOOL XiaoWei'; font-weight: 400;">Load</span>
+    </div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>

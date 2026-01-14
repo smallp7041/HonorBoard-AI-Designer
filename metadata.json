@@ -1,0 +1,5 @@
+{
+  "name": "HonorBoard AI Designer",
+  "description": "A high-resolution honor board generator with Gemini-powered image editing capabilities.",
+  "requestFramePermissions": []
+}
