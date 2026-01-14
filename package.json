@@ -9,15 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "uuid": "^13.0.0",
     "@google/genai": "^1.35.0",
+    "html-to-image": "1.11.11",
+    "jspdf": "2.5.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "html-to-image": "1.11.11",
-    "jspdf": "2.5.1"
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@types/uuid": "^10.0.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
