@@ -179,7 +179,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                         className="w-full bg-red-600 hover:bg-red-500 text-white p-3 rounded font-bold shadow-lg transition-transform transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isGeneratingAI}
                     >
-                        <i className="fas fa-file-pdf mr-2"></i> 下載高解析 PDF
+                        <i className="fas fa-file-pdf mr-2"></i> 下載高解析 PDF (A3)
                     </button>
                 </div>
             </div>

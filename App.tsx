@@ -197,10 +197,10 @@ const App: React.FC = () => {
                 await document.fonts.ready;
 
                 // 2. Generate High Resolution Image for PDF
-                // pixelRatio 3 is usually 300dpi equivalent for screens, sufficient for high quality print
+                // pixelRatio 6 ensures very high quality for A3 printing (approx 300dpi relative to physical size)
                 const dataUrl = await toPng(canvasRef.current!, {
                      cacheBust: true,
-                     pixelRatio: 4, 
+                     pixelRatio: 6, 
                      width: 600,
                      height: 900,
                      style: {
@@ -213,27 +213,29 @@ const App: React.FC = () => {
                 });
 
                 // 3. Initialize PDF
-                // A4 size: 210mm x 297mm
+                // A3 size: 297mm x 420mm
                 const pdf = new jsPDF({
                     orientation: 'portrait',
                     unit: 'mm',
-                    format: 'a4'
+                    format: 'a3'
                 });
 
-                const pageWidth = pdf.internal.pageSize.getWidth(); // 210
-                const pageHeight = pdf.internal.pageSize.getHeight(); // 297
+                const pageWidth = pdf.internal.pageSize.getWidth(); // 297
+                const pageHeight = pdf.internal.pageSize.getHeight(); // 420
                 
                 // Calculate dimensions to center the poster
                 // Poster aspect ratio is 600:900 = 1:1.5
-                // Page aspect ratio is 210:297 = 1:1.414
+                // Page aspect ratio is 297:420 = 1:1.414
                 
-                // Since 1.5 > 1.414, the poster is "taller" relative to its width than the page.
-                // We should fit by height.
+                // 1.5 > 1.414, so poster is taller relative to width than the page.
+                // We should fit by height to ensure it fits completely, 
+                // or if we want to fill the page, we might scale differently.
+                // Here we ensure the whole poster fits on the page.
                 
                 let imgHeight = pageHeight;
-                let imgWidth = imgHeight * (600 / 900); // Maintain aspect ratio
+                let imgWidth = imgHeight * (600 / 900);
                 
-                // If by some chance width is too big (shouldn't happen with A4 portrait vs 2:3), check it
+                // Double check if width fits (it should for A3 portrait vs 2:3 ratio, but good to be safe)
                 if (imgWidth > pageWidth) {
                     imgWidth = pageWidth;
                     imgHeight = imgWidth * (900 / 600);
@@ -243,7 +245,7 @@ const App: React.FC = () => {
                 const y = (pageHeight - imgHeight) / 2;
 
                 pdf.addImage(dataUrl, 'PNG', x, y, imgWidth, imgHeight);
-                pdf.save(`HonorBoard-${new Date().getFullYear()}.pdf`);
+                pdf.save(`HonorBoard-A3-${new Date().getFullYear()}.pdf`);
 
             } catch (err) {
                 console.error("PDF Export failed", err);
